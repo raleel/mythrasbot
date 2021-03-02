@@ -4,7 +4,7 @@ import random
 from math import ceil
 diff_dic = {'Veryeasy':2.,'VeryEasy':2.,'veryeasy':2.,'Easy':1.5,'easy':1.5,'normal':1.,'Normal':1.,'Standard':1,'standard':1.,'Hard':2/3,'hard':2/3,'Formidable':1/2,'formidable':1/2,'Herculean':1/10,'herculean':1/10}
 succ_dic = {1:'Critical Success',2:'Success',3:'Failure',4:'Critical Failure'}
-TOKEN = 'ODEzNjQ0OTEzMjcwOTgwNjY5.YDST4A.0LGSmHjcJirkuBi02DZ1KmtbO7g'
+TOKEN = ''
 client = discord.Client()
 bot = commands.Bot('$')
 @bot.command()
