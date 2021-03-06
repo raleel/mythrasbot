@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import random
 from math import ceil
-diff_dic = {'Veryeasy':2.,'VeryEasy':2.,'veryeasy':2.,'Easy':1.5,'easy':1.5,'normal':1.,'Normal':1.,'Standard':1,'standard':1.,'Hard':2/3,'hard':2/3,'Formidable':1/2,'formidable':1/2,'Herculean':1/10,'herculean':1/10}
+diff_dic = {'veryeasy':2.,'easy':1.5,'normal':1.,'standard':1.,'hard':2/3,'formidable':1/2,'herculean':1/10}
 succ_dic = {1:'Critical Success',2:'Success',3:'Failure',4:'Critical Failure'}
 TOKEN = ''
 client = discord.Client()
@@ -24,14 +24,12 @@ async def skillroll(ctx,skill1,difficulty1):
     await ctx.send(success1)
 @bot.command()
 async def contestedroll(ctx,skill1,difficulty1,skill2,difficulty2):    
-    print(skill1)
-    print(difficulty1)
-    print(skill2)
-    print(difficulty2)    
     skill1 = int(skill1)
     skill2= int(skill2)    
     roll1 = random.randint(1,100)
     roll2 = random.randint(1,100)     
+    difficulty1 = difficulty1.lower()
+    difficulty2 = difficulty2.lower()
     effective_skill1 = ceil(skill1*diff_dic[difficulty1])
     effective_skill2 = ceil(skill2*diff_dic[difficulty2])
     maximum_skill = max(effective_skill1,effective_skill2)
@@ -81,15 +79,15 @@ async def contestedroll(ctx,skill1,difficulty1,skill2,difficulty2):
 @contestedroll.error
 async def contestedroll_error(ctx,error):
 	await ctx.send('command is formatted: $contestedroll <skill1> <difficulty1> <skill2> <difficulty2>')
-	await ctx.send('difficulties are: Veryeasy, VeryEasy, veryeasy, Easy, easy, normal, Normal, Standard, standard, Hard, hard, Formidable, formidable, Heruclean, herculean')
+	await ctx.send('difficulties are: veryeasy, easy, normal, standard, hard, formidable, herculean')
 @skillroll.error
 async def skillroll_error(ctx,error):
 	await ctx.send('command are formatted: $skillroll <rating> <difficulty>')
-	await ctx.send('difficulties are: Veryeasy, VeryEasy, veryeasy, Easy, easy, normal, Normal, Standard, standard, Hard, hard, Formidable, formidable, Heruclean, herculean')
+	await ctx.send('difficulties are: veryeasy, easy, normal, standard, hard, formidable, herculean')
 @bot.command()
 async def mythrasbot(ctx):
 	await ctx.send('Hi, I am the MythrasBot. I can roll dice for you.')
 	await ctx.send('command are formatted: $skillroll <rating> <difficulty>')
 	await ctx.send('command is formatted: $contestedroll <skill1> <difficulty1> <skill2> <difficulty2>')
-	await ctx.send('difficulties are: Veryeasy, VeryEasy, veryeasy, Easy, easy, normal, Normal, Standard, standard, Hard, hard, Formidable, formidable, Heruclean, herculean')
+	await ctx.send('difficulties are: veryeasy, easy, normal, standard, hard, formidable, herculean')
 bot.run(TOKEN)
