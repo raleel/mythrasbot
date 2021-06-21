@@ -2,9 +2,10 @@ import discord
 from discord.ext import commands
 import random
 from math import ceil
+import os
 diff_dic = {'veryeasy':2.,'easy':1.5,'normal':1.,'standard':1.,'hard':2/3,'formidable':1/2,'herculean':1/10}
 succ_dic = {1:'Critical Success',2:'Success',3:'Failure',4:'Critical Failure'}
-TOKEN = ''
+TOKEN = os.getenv("MYTHRASBOT_TOKEN")
 client = discord.Client()
 bot = commands.Bot('$')
 @bot.command()
