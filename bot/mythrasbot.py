@@ -5,7 +5,7 @@ from math import ceil
 import os
 diff_dic = {'veryeasy':2.,'easy':1.5,'normal':1.,'standard':1.,'hard':2/3,'formidable':1/2,'herculean':1/10}
 succ_dic = {1:'Critical Success',2:'Success',3:'Failure',4:'Critical Failure'}
-TOKEN = os.getenv("MYTHRASBOT_TOKEN")
+token = os.getenv("MYTHRASBOT_TOKEN")
 client = discord.Client()
 bot = commands.Bot('$')
 @bot.command()
@@ -91,4 +91,4 @@ async def mythrasbot(ctx):
 	await ctx.send('command are formatted: $skillroll <rating> <difficulty>')
 	await ctx.send('command is formatted: $contestedroll <skill1> <difficulty1> <skill2> <difficulty2>')
 	await ctx.send('difficulties are: veryeasy, easy, normal, standard, hard, formidable, herculean')
-bot.run(TOKEN)
+bot.run(token)
