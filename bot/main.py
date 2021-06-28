@@ -47,7 +47,7 @@ async def contestedroll(ctx,skill1,difficulty1,skill2,difficulty2):
         success1 = 2
     elif roll1 > effective_skill1:
         success1 = 3
-    if ((roll >= 99 and skill1 <=100) or (roll == 100 and skill1 > 100)):
+    if ((roll1 >= 99 and skill1 <=100) or (roll == 100 and skill1 > 100)):
         success1 = 4        
     if roll2 <= effective_skill2/10:
         success2 = 1
@@ -55,7 +55,7 @@ async def contestedroll(ctx,skill1,difficulty1,skill2,difficulty2):
         success2 = 2
     elif roll2 > effective_skill2:
         success2 = 3
-    if ((roll >= 99 and skill2 <=100) or (roll == 100 and skill2 > 100)):
+    if ((roll2 >= 99 and skill2 <=100) or (roll2 == 100 and skill2 > 100)):
         success2 = 4        
     if success1 != success2:
         if success1 < success2:
