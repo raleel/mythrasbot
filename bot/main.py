@@ -9,7 +9,7 @@ token = os.getenv("MYTHRASBOT_TOKEN")
 client = discord.Client()
 bot = commands.Bot('$')
 @bot.command()
-async def roll():
+async def roll(ctx):
     roll = random.randint(1,100)
     await ctx.send('rolled ' + str(roll))
 @bot.command()
