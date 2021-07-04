@@ -9,6 +9,10 @@ token = os.getenv("MYTHRASBOT_TOKEN")
 client = discord.Client()
 bot = commands.Bot('$')
 @bot.command()
+async def roll():
+    roll = random.randint(1,100)
+    await ctx.send('rolled ' + str(roll))
+@bot.command()
 async def skillroll(ctx,skill1,difficulty1):
     skill1 = int(skill1)
     effective_skill1 = ceil(skill1*diff_dic[difficulty1])
@@ -90,5 +94,6 @@ async def mythrasbot(ctx):
 	await ctx.send('Hi, I am the MythrasBot. I can roll dice for you.')
 	await ctx.send('command are formatted: $skillroll <rating> <difficulty>')
 	await ctx.send('command is formatted: $contestedroll <skill1> <difficulty1> <skill2> <difficulty2>')
+	await ctx.send('command is formatted: $roll')
 	await ctx.send('difficulties are: veryeasy, easy, normal, standard, hard, formidable, herculean')
 bot.run(token)
